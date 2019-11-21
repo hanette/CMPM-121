@@ -16,6 +16,7 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
         player = this.transform.parent.gameObject;
     }
 

@@ -31,6 +31,7 @@ public class Stack : MonoBehaviour {
             }
 
             other.transform.parent = bun.transform;
+            other.rigidbody.useGravity = false;
             other.rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
             stack += 1;
         }

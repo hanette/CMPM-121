@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4401722, g: 0.48869884, b: 0.56888396, a: 1}
+  m_IndirectSpecularColor: {r: 0.44017276, g: 0.48869956, b: 0.5688852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1579,6 +1579,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1637444153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7959569816594075152, guid: 28744faa547c18340a7dbf9266162b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6232284936248963569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1637444154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637444153}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1691645678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,6 +2393,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 4176229668969757688, guid: 554c0132a61178541970700f3cabab6d,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4176229668969757689, guid: 554c0132a61178541970700f3cabab6d,
         type: 3}
       propertyPath: look
@@ -2453,6 +2477,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 8725335489655997058, guid: f6cb676aeb27cbe48911b98159dfe034,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8725335489655997059, guid: f6cb676aeb27cbe48911b98159dfe034,
         type: 3}
       propertyPath: look
@@ -2460,12 +2489,6 @@ PrefabInstance:
       objectReference: {fileID: 743395068}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6cb676aeb27cbe48911b98159dfe034, type: 3}
---- !u!1 &4038484986299547617 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7959569816594075152, guid: 28744faa547c18340a7dbf9266162b0b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6232284936248963569}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4038484987184784199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2542,6 +2565,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038484985347936212, guid: bd86f1e5e02571949b7e1f7825bf2e78,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038484985347936212, guid: bd86f1e5e02571949b7e1f7825bf2e78,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.0000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd86f1e5e02571949b7e1f7825bf2e78, type: 3}
@@ -2622,12 +2655,18 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 7959569816594075154, guid: 28744faa547c18340a7dbf9266162b0b,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7959569816594075155, guid: 28744faa547c18340a7dbf9266162b0b,
         type: 3}
       propertyPath: look
       value: 
       objectReference: {fileID: 743395068}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7959569816594075157, guid: 28744faa547c18340a7dbf9266162b0b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28744faa547c18340a7dbf9266162b0b, type: 3}
 --- !u!1 &8640105566294268397 stripped
 GameObject:
@@ -2648,4 +2687,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bun: {fileID: 8640105566294268397}
-  lettuce: {fileID: 4038484986299547617}

@@ -13,7 +13,7 @@ public class Pickup : MonoBehaviour
     {
         held = false;
         shooting = false;
-        GetComponent<Rigidbody>().maxAngularVelocity = 500f;
+        GetComponent<Rigidbody>().maxAngularVelocity = 100f;
     }
     private void FixedUpdate()
     {
@@ -25,8 +25,7 @@ public class Pickup : MonoBehaviour
         if (shooting == true)
         {
             power.value = Mathf.PingPong(Time.time * 40, 100);
-            GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * 500f, ForceMode.Acceleration);
-            //GetComponent<Rigidbody>().angularVelocity = transform.forward * 50000000f;
+            GetComponent<Rigidbody>().AddRelativeTorque(transform.forward * 100f, ForceMode.Acceleration);
         }
     }
     public Transform look;

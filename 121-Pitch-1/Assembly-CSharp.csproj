@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Cooking.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\Stack.cs" />
+    <Compile Include="Assets\Scripts\StackChild.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/hanet/OneDrive/Documents/GitHub/121-Final-Pitch/121-Pitch-1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

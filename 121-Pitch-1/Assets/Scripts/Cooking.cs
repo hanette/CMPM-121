@@ -8,12 +8,14 @@ public class Cooking : MonoBehaviour {
     public bool isCooked;
     bool TimerOn;
     float seconds;
-    float timeLeft = 10.0f; // 10 seconds
+    float timeLeft = 5.0f; // 5 seconds
     float curTime;
+    bool printOnce;
 
     void Start(){
          TimerOn = false;
          isCooked = false;
+         printOnce = true;
          curTime = 0.0f;
      }
 
@@ -25,11 +27,18 @@ public class Cooking : MonoBehaviour {
              if(curTime >= timeLeft){
                  Meat.GetComponent<MeshRenderer>().material = Cooked;
                  isCooked = true;
+
+                 if(printOnce){ // debug
+                     printOnce = false;
+                     print("cooked");
+                 }
              }
      }
 
-     public void OnCollisionExit(){
-         TimerOn = false;
+     public void OnCollisionExit(Collision other){
+         if (other.gameObject.name == "Meat"){
+             TimerOn = false;
+         }
      }
 
     void OnCollisionEnter(Collision other){

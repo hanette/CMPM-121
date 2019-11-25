@@ -20,7 +20,7 @@ public class Pickup : MonoBehaviour
         if (held == true)
         {
             //GetComponent<Rigidbody>().velocity = Vector3.zero;
-            
+
         }
         if (shooting == true)
         {

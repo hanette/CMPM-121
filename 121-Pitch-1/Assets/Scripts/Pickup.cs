@@ -7,30 +7,28 @@ public class Pickup : MonoBehaviour
     private bool held;
     private void Update()
     {
-        if (held == true)
-        {
+        if (held == true){
             GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
     }
     public Transform look;
 
-    private void OnMouseDown()
-    {
+    private void OnMouseDown(){
         held = true;
-        //GetComponent<BoxCollider>().enabled = false;
-        GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-        this.transform.position = look.position;
-        this.transform.parent = GameObject.Find("Look").transform;
+        if(transform.parent == null){
+            GetComponent<Rigidbody>().useGravity = false;
+            this.transform.position = look.position;
+            this.transform.parent = GameObject.Find("Look").transform;
+        }
     }
 
-    private void OnMouseUp()
-    {
+    private void OnMouseUp(){
         held = false;
-        this.transform.parent = null;
-        //GetComponent<BoxCollider>().enabled = true;
+        if(transform.parent.name == "Look"){
+            this.transform.parent = null;
+        }
         GetComponent<Rigidbody>().useGravity = true;
     }
 }

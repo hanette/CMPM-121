@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Fallen.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
+    <None Include="Assets\Materials\NewUnlitShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Program Files/Unity/Other Projects/121-Final-Pitch/121-Pitch-2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

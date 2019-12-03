@@ -1,24 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterControl : MonoBehaviour
 {
-    public float speed = 10f;
-    private float forward;
+    public float speed;
     private float side;
+    public bool shooting;
+    public Slider power;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        shooting = false;
+        GetComponent<Rigidbody>().maxAngularVelocity = 100f;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        forward = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        side = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        transform.Translate(side, 0, forward);
+        power.value = Mathf.PingPong(Time.time * 40, 100);
+        side = Input.GetAxis("Horizontal");
+        if (shooting == true)
+        {
+            GetComponent<Rigidbody>().AddTorque(Vector3.forward * side * -speed, ForceMode.Acceleration);
+        }
+    }
+    private void OnMouseDown()
+    {
+        GetComponent<Rigidbody>().AddForce(transform.forward * power.value * 5f, ForceMode.Impulse);
+        shooting = true;
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CharacterControl : MonoBehaviour
 {
-    public float speed;
+    public float spinSpeed;
+    public float launchSpeed;
     private float side;
     public bool shooting;
     public Slider power;
@@ -21,12 +22,16 @@ public class CharacterControl : MonoBehaviour
         side = Input.GetAxis("Horizontal");
         if (shooting == true)
         {
-            GetComponent<Rigidbody>().AddTorque(Vector3.forward * side * -speed, ForceMode.Acceleration);
+            GetComponent<Rigidbody>().AddTorque(Vector3.forward * side * -spinSpeed, ForceMode.Acceleration);
         }
     }
     private void OnMouseDown()
     {
-        GetComponent<Rigidbody>().AddForce(transform.forward * power.value * 5f, ForceMode.Impulse);
-        shooting = true;
+        if(shooting == false)
+        {
+            GetComponent<Rigidbody>().AddForce(transform.forward * power.value * launchSpeed, ForceMode.Impulse);
+            shooting = true;
+        }
+
     }
 }

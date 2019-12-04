@@ -5,7 +5,6 @@ using UnityEngine;
 public class Fallen : MonoBehaviour {
     public int points;
 
-
     void Start(){
         points = 0;
     }

@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class BallReturn : MonoBehaviour
 {
+    public int reset;
+    public bool resetPin;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        reset = 0;
+        resetPin = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +28,11 @@ public class BallReturn : MonoBehaviour
             other.transform.forward = Vector3.forward;
             other.GetComponent<CharacterControl>().shooting = false;
             other.transform.position = new Vector3(0, 2, -143);
+            reset++;
+            if(reset >= 2){
+                reset = 0;
+                resetPin = true;
+            }
         }
     }
 }

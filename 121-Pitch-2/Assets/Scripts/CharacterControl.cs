@@ -11,6 +11,8 @@ public class CharacterControl : MonoBehaviour
     public bool shooting;
     public Slider power;
     public Text time;
+    public Text spin;
+    public Text start;
     public float timer = 30f;
 
     private void Start()
@@ -29,6 +31,8 @@ public class CharacterControl : MonoBehaviour
             if(timer < 0)
             {
                 transform.position = new Vector3(0, 2, -307);
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 shooting = false;
                 timer = 30f;
             }
@@ -43,6 +47,8 @@ public class CharacterControl : MonoBehaviour
     {
         if(shooting == false)
         {
+            spin.enabled = false;
+            start.enabled = false;
             GetComponent<Rigidbody>().AddForce(transform.forward * power.value * launchSpeed, ForceMode.Impulse);
             shooting = true;
         }

@@ -27,6 +27,7 @@ public class BallReturn : MonoBehaviour
             other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             other.transform.forward = Vector3.forward;
             other.GetComponent<CharacterControl>().shooting = false;
+            other.GetComponent<CharacterControl>().timer = 30f;
             other.transform.position = new Vector3(0, 2, -307);
             reset++;
             if(reset >= 2){

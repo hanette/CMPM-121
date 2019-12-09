@@ -17,13 +17,17 @@ public class CharacterControl : MonoBehaviour
         GetComponent<Rigidbody>().maxAngularVelocity = 100f;
     }
     private void FixedUpdate()
-    {
-        power.value = Mathf.PingPong(Time.time * 40, 100);
+    {     
         side = Input.GetAxis("Horizontal");
         if (shooting == true)
         {
             GetComponent<Rigidbody>().AddTorque(Vector3.forward * side * -spinSpeed, ForceMode.Acceleration);
         }
+        else {
+            power.value = Mathf.PingPong(Time.time * 40, 100);
+            transform.position += new Vector3(side,0,0);
+        }
+
     }
     private void OnMouseDown()
     {

@@ -29,7 +29,12 @@ public class ScoreManager : MonoBehaviour {
     public int score;
 
     void Start(){
-        score = 0;
+        if(PlayerPrefs.GetInt("scores") == 0){
+            score = 0;
+        } else {
+            score = PlayerPrefs.GetInt("scores");
+        }
+
         SetScoreText();
         check1 = false;
         check2 = false;
@@ -41,6 +46,7 @@ public class ScoreManager : MonoBehaviour {
         check8 = false;
         check9 = false;
         check10 = false;
+
     }
 
     void Update() {
@@ -96,27 +102,7 @@ public class ScoreManager : MonoBehaviour {
         }
         // reset
         if(GameObject.Find("BallReturn").GetComponent<BallReturn>().resetPin == true){
-            check1 = false;
-            check2 = false;
-            check3 = false;
-            check4 = false;
-            check5 = false;
-            check6 = false;
-            check7 = false;
-            check8 = false;
-            check9 = false;
-            check10 = false;
-            GameObject.Find("PinCollider1").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider2").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider3").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider4").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider5").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider6").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider7").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider8").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider9").GetComponent<Fallen>().points = 0;
-            GameObject.Find("PinCollider10").GetComponent<Fallen>().points = 0;
-            GameObject.Find("BallReturn").GetComponent<BallReturn>().resetPin = false;
+            PlayerPrefs.SetInt("scores", score);
             Application.LoadLevel("SampleScene");
         }
     }
@@ -125,8 +111,8 @@ public class ScoreManager : MonoBehaviour {
          scoreText.text = "Score: " + score.ToString ();
      }
 
-     IEnumerator waiter(){
-         //Wait for 4 seconds
-        yield return new WaitForSeconds(10);
-    }
+     void OnApplicationQuit(){
+       PlayerPrefs.SetInt("scores", 0);
+   }
+
 }

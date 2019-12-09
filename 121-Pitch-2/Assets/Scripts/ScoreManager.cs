@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour {
     public Text scoreText;
+    public Text resetting;
     public GameObject pin1;
     public GameObject pin2;
     public GameObject pin3;
@@ -26,6 +27,7 @@ public class ScoreManager : MonoBehaviour {
     bool check8;
     bool check9;
     bool check10;
+    bool waited;
     public int score;
 
     void Start(){
@@ -46,7 +48,7 @@ public class ScoreManager : MonoBehaviour {
         check8 = false;
         check9 = false;
         check10 = false;
-
+        waited = false;
     }
 
     void Update() {
@@ -100,8 +102,11 @@ public class ScoreManager : MonoBehaviour {
             check10 = true;
             SetScoreText();
         }
+        if(GameObject.Find("BallReturn").GetComponent<BallReturn>().resetPin){
+            StartCoroutine(wait());
+        }
         // reset
-        if(GameObject.Find("BallReturn").GetComponent<BallReturn>().resetPin == true){
+        if(GameObject.Find("BallReturn").GetComponent<BallReturn>().resetPin && waited){
             PlayerPrefs.SetInt("scores", score);
             Application.LoadLevel("SampleScene");
         }
@@ -111,8 +116,18 @@ public class ScoreManager : MonoBehaviour {
          scoreText.text = "Score: " + score.ToString ();
      }
 
+     void SetResetText (){
+          resetting.text = "Resetting Pins...";
+      }
+
      void OnApplicationQuit(){
        PlayerPrefs.SetInt("scores", 0);
+   }
+
+   IEnumerator wait(){
+       SetResetText();
+       yield return new WaitForSeconds(2.0f);
+       waited = true;
    }
 
 }
